@@ -19,17 +19,19 @@ public class Util {
 	 */
 	public static int countNumbers(int vetor[], int n) 
 	{ 
-		Arrays.sort(vetor); 
+		int contador = 0;
 		
-		int contador = 0; 
+		if(null != vetor &&  vetor.length > 0) {
+			Arrays.sort(vetor); 
+			
+			
+			for (int i = 0; i < vetor.length; i++) 
+			{ 
+				if (vetor[i] < n) 
+					contador++; 
+			} 
+		}
 		
-		for (int i = 0; i < vetor.length; i++) 
-		{ 
-			if (vetor[i] < n) 
-				contador++; 
-		} 
-	
 		return contador; 
 	} 
-	
 }

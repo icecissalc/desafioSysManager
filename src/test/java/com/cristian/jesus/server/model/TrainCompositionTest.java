@@ -18,8 +18,8 @@ public class TrainCompositionTest {
 	public void testeDesafio1() {
         this.trainComposition.atracarVagaoPelaEsquerda(7);
         this.trainComposition.atracarVagaoPelaEsquerda(13);
-        System.out.println("Primeiro vagão desatracado pelo lado direito: " + this.trainComposition.desatracarVagaoPelaDireita()); // 7 
-        System.out.println("Primeiro vagão desatracado pelo lado esquerdo: " + this.trainComposition.desatracarVagaoPelaEsquerda()); // 13
+        System.out.println("Primeiro vagão desatracado pelo lado direito: " + this.trainComposition.desatracarVagaoPelaDireita()); 
+        System.out.println("Primeiro vagão desatracado pelo lado esquerdo: " + this.trainComposition.desatracarVagaoPelaEsquerda());
         
 	}
 	
@@ -35,6 +35,18 @@ public class TrainCompositionTest {
         this.trainComposition.atracarVagaoPelaEsquerda(7);
         this.trainComposition.atracarVagaoPelaEsquerda(13);
         assertEquals(13,this.trainComposition.desatracarVagaoPelaEsquerda());
+	}
+	
+	@Test(expected = IndexOutOfBoundsException.class)
+	public void testeDesatracarPelaDireitaTremVazio() {
+        this.trainComposition.limparTrem();
+        this.trainComposition.desatracarVagaoPelaDireita();
+	}
+	
+	@Test(expected = IndexOutOfBoundsException.class)
+	public void testeDesatracarPelaEsquerdaTremVazio() {
+        this.trainComposition.limparTrem();
+        this.trainComposition.desatracarVagaoPelaDireita();
 	}
 	
 }
